@@ -1,0 +1,41 @@
+{
+  "description": "Spindle requirements management: inject the extraction directive on prompt submit, surface the requirements delta at end of turn.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command -v spindle-client >/dev/null 2>&1 && exec spindle-client cc hook session-start; printf '%s' '{\"systemMessage\":\"Spindle plugin is enabled, but the spindle-client CLI was not found on PATH — requirement tracking is inactive for this session.\\n\\nInstall it via npm, then restart Claude Code:\\n  npm install -g @codespeak-dev/spindle-client@dev\"}'",
+            "timeout": 10,
+            "statusMessage": "Spindle"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command -v spindle-client >/dev/null 2>&1 || exit 0; exec spindle-client cc hook user-prompt-submit",
+            "timeout": 10,
+            "statusMessage": "Spindle: extracting requirements…"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command -v spindle-client >/dev/null 2>&1 || exit 0; exec spindle-client cc hook stop",
+            "timeout": 10,
+            "statusMessage": "Spindle: surfacing requirements delta…"
+          }
+        ]
+      }
+    ]
+  }
+}

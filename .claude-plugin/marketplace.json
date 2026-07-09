@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "codespeak-dev",
+  "description": "CodeSpeak's Claude Code plugins.",
+  "owner": {
+    "name": "CodeSpeak",
+    "email": "hi@codespeak.dev"
+  },
+  "plugins": [
+    {
+      "name": "spindle",
+      "source": "./plugins/spindle",
+      "description": "Requirements management for Claude Code. Requires the spindle-client CLI on PATH.",
+      "category": "development"
+    }
+  ]
+}
