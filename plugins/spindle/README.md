@@ -51,8 +51,10 @@ its tools report as not found until you install the CLI (step 1).
 
 - `.claude-plugin/plugin.json` — manifest; registers the `requirements` MCP
   server as `spindle-client cc mcp`.
-- `hooks/hooks.json` — `SessionStart`, `UserPromptSubmit`, and `Stop` hooks, run
-  as `spindle-client cc hook <event>`.
+- `hooks/hooks.json` — `SessionStart`, `UserPromptSubmit`, `Stop`, and
+  `PostToolUse` (on `AskUserQuestion`, to extract requirements from decisions
+  you make by answering a question) hooks, run as
+  `spindle-client cc hook <event>`.
 - `skills/` — bundled skills (e.g. `review-requirements`, which audits the
   tracked requirements against the extraction guidelines and fixes them).
 

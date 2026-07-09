@@ -1,5 +1,5 @@
 {
-  "description": "Spindle requirements management: inject the extraction directive on prompt submit, surface the requirements delta at end of turn.",
+  "description": "Spindle requirements management: inject the extraction directive on prompt submit, surface the requirements delta at end of turn, and extract requirements from answers to AskUserQuestion prompts.",
   "hooks": {
     "SessionStart": [
       {
@@ -33,6 +33,19 @@
             "command": "command -v spindle-client >/dev/null 2>&1 || exit 0; exec spindle-client cc hook stop",
             "timeout": 10,
             "statusMessage": "Spindle: surfacing requirements delta…"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "command -v spindle-client >/dev/null 2>&1 || exit 0; exec spindle-client cc hook post-tool-use",
+            "timeout": 10,
+            "statusMessage": "Spindle: extracting from answer…"
           }
         ]
       }
