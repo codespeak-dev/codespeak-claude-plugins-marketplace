@@ -29,6 +29,5 @@ Collect the user's feedback on requirements Spindle recorded.
    <id> '<JSON array>' — <id> is the value of the directive's "Session:" line
    (omit --session when there is none); bare spindle-client, one quoted
    argument, no pipes.
-6. If the command output says it recorded the point(s), reply with exactly
-   "Noted." and nothing else — no counts, no summaries, no explanations.
-   Otherwise reply with the command's output verbatim and nothing else.
+6. Reply with the command's output verbatim (all lines, including the upload
+   reference) and nothing else — no summaries, no explanations.
