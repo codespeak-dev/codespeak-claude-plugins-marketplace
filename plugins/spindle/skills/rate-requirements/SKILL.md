@@ -10,7 +10,7 @@ Collect the user's feedback on requirements Spindle recorded.
    `spindle-client feedback list --scope last-diff` (default) or
    `--scope session-unrated` (user asked to sweep the session). Output: JSON
    array of requirements with ids.
-2. Empty set: say so; still ask the overall question.
+2. Empty set: say so; still ask the final generic question.
 3. Call AskUserQuestion (max 4 questions/call): per requirement one question —
    question = its statement, header = its kind abbreviated to 12 chars or less
    (functional_requirements → "Functional", non_functional_requirements →
@@ -19,12 +19,19 @@ Collect the user's feedback on requirements Spindle recorded.
    non_goals → "Non-goal", anything else → its capitalized first word), options
    exactly ["Good" with description "", "Bad — say what's wrong below" with
    description "PLEASE type the problem into Type something"] — plus one final
-   question "Overall feedback?" (header "Overall", same two options). Never add
-   Skip/None options.
+   generic question "Anything about Spindle itself? A missed topic or a gripe."
+   (header "General"), options exactly ["Nothing to add" with description
+   "Requirement-specific notes go on the previous tabs", "Yes, I will type
+   below:" with description ""]; any generic note is typed into the free-text
+   ("Other") field. Never add Skip/None options to the per-requirement
+   questions.
 4. Map answers: Good → {"type":"good","requirementId":"<id>"}; Bad — say what's
-   wrong below → {"type":"bad","requirementId":"<id>"}; typed text →
-   {"type":"freeform","text":"<text>","requirementId":"<id>"}; overall answer →
-   no requirementId; skipped → nothing.
+   wrong below → {"type":"bad","requirementId":"<id>"}; text typed on a
+   requirement → {"type":"freeform","text":"<text>","requirementId":"<id>"}; a
+   note typed into the generic question's free-text field →
+   {"type":"freeform","text":"<text>"} (no requirementId); "Nothing to add", a
+   bare "Yes, I will type below:" with no typed text, or a skipped question →
+   nothing.
 5. If ≥1 answer: run one Bash command: spindle-client feedback submit --session
    <id> '<JSON array>' — <id> is the value of the directive's "Session:" line
    (omit --session when there is none); bare spindle-client, one quoted
