@@ -1,6 +1,6 @@
 ---
 name: rate-requirements
-description: Collect good/bad/free-form feedback on the requirements Spindle recorded — the last turn's additions by default, or every unrated requirement of the session. Use when asked to rate requirements or give feedback on requirement extraction.
+description: Collect good/bad/free-form feedback on the requirements Spindle recorded — the last turn's additions by default, or every unrated requirement of the session. Use when asked to rate requirements or give feedback on requirement extraction. Not for fixing the tracked set itself — that is audit-requirements; for one-shot feedback without the questionnaire, praise and fuck.
 ---
 
 Collect the user's feedback on requirements Spindle recorded.

@@ -1,6 +1,6 @@
 ---
-name: review-requirements
-description: Audit the requirements Spindle tracks for this project and fix the ones that violate the extraction guidelines. Use when asked to review, clean up, or fix tracked requirements.
+name: audit-requirements
+description: Maintenance tool: audit the requirements Spindle tracks for this project and fix the ones that violate the extraction guidelines — wrong kind, non-atomic, duplicate, vague. Use when asked to audit, clean up, or fix the tracked requirements themselves. Not for rating them or giving feedback — that is rate-requirements.
 ---
 
 Audit the requirements Spindle already tracks for this project and fix the ones

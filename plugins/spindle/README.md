@@ -55,8 +55,10 @@ its tools report as not found until you install the CLI (step 1).
   `PostToolUse` (on `AskUserQuestion`, to extract requirements from decisions
   you make by answering a question) hooks, run as
   `spindle-client cc hook <event>`.
-- `skills/` — bundled skills (e.g. `review-requirements`, which audits the
-  tracked requirements against the extraction guidelines and fixes them).
+- `skills/` — bundled skills: `rate-requirements` (the interactive rating flow),
+  `praise` and `fuck` (one-shot good/bad feedback, submitted immediately), and
+  `audit-requirements` (audits the tracked requirements against the extraction
+  guidelines and fixes them).
 
 The CLI's source and build live in `apps/client/` (the `cc` subcommand) and are
 **not** shipped here.
