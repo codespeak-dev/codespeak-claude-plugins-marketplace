@@ -1,6 +1,6 @@
 {
   "name": "spindle",
-  "version": "0.1.0-dev.470+g3dd1649",
+  "version": "0.1.0-dev.472+g2713c89",
   "description": "Requirements management for Claude Code: on each prompt the model extracts requirements, retrieves related ones, and the requirements delta is surfaced to the user.",
   "author": {
     "name": "CodeSpeak",
