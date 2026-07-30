@@ -1,14 +1,17 @@
 ---
 name: rate-requirements
-description: Collect good/bad/free-form feedback on the requirements Spindle recorded — the last turn's additions by default, or every unrated requirement of the session. Use when asked to rate requirements or give feedback on requirement extraction. Not for fixing the tracked set itself — that is audit-requirements; for one-shot feedback without the questionnaire, praise and fuck.
+description: Collect good/bad/free-form feedback on the requirements Spindle recorded — the last turn's additions by default, or every unrated requirement of the session. Use when asked to rate requirements or give feedback on requirement extraction, and only after the turn's implementation work is finished. Not for fixing the tracked set itself — that is audit-requirements; for one-shot feedback without the questionnaire, praise and fuck.
 ---
 
 Collect the user's feedback on requirements Spindle recorded.
 
-1. Target set: the requirement lines the invoking auto-ask directive listed (id,
-   kind, statement). Without such a directive, Bash:
-   `spindle-client feedback list --scope last-diff` (default) or
-   `--scope session-unrated` (user asked to sweep the session). Output: JSON
+Run this AFTER the turn's implementation work is done — it is a closing step,
+never a substitute for the work and never a reason to end the turn early. If
+part of the user's request is still unimplemented when this flow ends, go back
+and finish it.
+
+1. Target set: Bash `spindle-client feedback list --scope last-diff` (default)
+   or `--scope session-unrated` (user asked to sweep the session). Output: JSON
    array of requirements with ids.
 2. Empty set: say so; still ask the final generic question.
 3. Call AskUserQuestion (max 4 questions/call): per requirement one question —
@@ -32,9 +35,10 @@ Collect the user's feedback on requirements Spindle recorded.
    {"type":"freeform","text":"<text>"} (no requirementId); "Nothing to add", a
    bare "Yes, I will type below:" with no typed text, or a skipped question →
    nothing.
-5. If ≥1 answer: run one Bash command: spindle-client feedback submit --session
-   <id> '<JSON array>' — <id> is the value of the directive's "Session:" line
-   (omit --session when there is none); bare spindle-client, one quoted
-   argument, no pipes.
+5. If ≥1 answer: run one Bash command:
+   `spindle-client feedback submit '<JSON array>'` — bare spindle-client, one
+   quoted argument, no pipes.
 6. Reply with the command's output verbatim (all lines, including the upload
-   reference) and nothing else — no summaries, no explanations.
+   reference) and nothing else — no summaries, no explanations. Then resume any
+   unfinished part of the user's request; only end the turn if the work is
+   complete.

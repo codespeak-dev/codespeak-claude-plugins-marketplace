@@ -23,9 +23,11 @@ that violate the project's extraction guidelines.
      over-extraction).
 3. Submit every fix in a single `apply_requirements` call, passing
    `review: true` so the quote check is skipped (at review time there is no
-   originating user message to quote against):
-   - `removed`: the ids of requirements you are deleting or replacing.
-   - `added`: the corrected requirements, each an object with a `kind` and a
-     `statement`. To fix a requirement in place, put its id in `removed` and the
-     corrected version in `added`. Leave well-formed requirements untouched.
+   originating user message to quote against). Each fix is one operation:
+   - `modify` (with the requirement's `target_id`): rewrite it in place with a
+     corrected `kind` and `slots`, keeping its id.
+   - `delete` (with the requirement's `target_id`): remove it with no
+     replacement.
+   - `add`: introduce a corrected requirement (`kind`, `slots`). Leave
+     well-formed requirements untouched.
 4. Summarise what you changed and why.
