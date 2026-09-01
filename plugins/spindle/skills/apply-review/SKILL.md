@@ -40,7 +40,7 @@ your reply, not an invented operation.
 
 ## 3. Write the requirement changes first
 
-Submit them in **one** `apply_requirements` call with:
+Submit them in **one** `edit_requirements` call with:
 
 - **`review: true`** — their words were typed into a browser page, so they
   appear in no message of theirs and the ordinary quote check would reject every

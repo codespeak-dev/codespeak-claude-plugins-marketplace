@@ -1,5 +1,5 @@
 {
-  "description": "Spindle requirements management: inject the extraction directive on prompt submit, surface the requirements delta at end of turn, and extract requirements from answers to AskUserQuestion prompts.",
+  "description": "Spindle requirements management: extract requirements on prompt submit, surface the requirements delta at end of turn, and extract requirements from answers to AskUserQuestion prompts.",
   "hooks": {
     "SessionStart": [
       {
