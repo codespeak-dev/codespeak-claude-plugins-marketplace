@@ -16,7 +16,7 @@ separately on your `PATH`** — the plugin does not carry a runtime.
    GitHub Packages registry — see "Install via npm" in the
    [repo README](../../../README.md) for the one-time auth setup):
    ```sh
-   npm install -g @codespeak-dev/spindle-client@dev
+   npm install -g @codespeak-dev/cli@dev
    ```
    Alternatively, download the self-contained binary from the release and put it
    in a directory on your `PATH` (e.g. `~/.local/bin` if your shell has it on

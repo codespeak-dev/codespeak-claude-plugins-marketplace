@@ -14,6 +14,6 @@ Record the user's negative quick feedback about Spindle.
 3. If that fails with "Invalid feedback input", the installed codespeak predates
    text on bad points: rerun the command once with the point replaced by
    {"type":"freeform","text":"<the same text>"}, and end the reply by asking the
-   user to run: npm install -g @codespeak-dev/spindle-client@dev
+   user to run: npm install -g @codespeak-dev/cli@dev
 4. Reply with the command's output verbatim (all lines, including the upload
    reference) and nothing else — no summaries, no explanations.
