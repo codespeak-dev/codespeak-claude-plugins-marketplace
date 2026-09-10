@@ -10,7 +10,7 @@
     {
       "name": "spindle",
       "source": "./plugins/spindle",
-      "description": "Requirements management for Claude Code. Requires the spindle-client CLI on PATH.",
+      "description": "Requirements management for Claude Code. Requires the codespeak CLI on PATH.",
       "category": "development"
     }
   ]

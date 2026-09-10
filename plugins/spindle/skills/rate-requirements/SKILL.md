@@ -10,8 +10,8 @@ never a substitute for the work and never a reason to end the turn early. If
 part of the user's request is still unimplemented when this flow ends, go back
 and finish it.
 
-1. Target set: Bash `spindle-client feedback list --scope last-diff` (default)
-   or `--scope session-unrated` (user asked to sweep the session). Output: JSON
+1. Target set: Bash `codespeak feedback list --scope last-diff` (default) or
+   `--scope session-unrated` (user asked to sweep the session). Output: JSON
    array of requirements with ids.
 2. Empty set: say so; still ask the final generic question.
 3. Call AskUserQuestion (max 4 questions/call): per requirement one question —
@@ -36,8 +36,8 @@ and finish it.
    bare "Yes, I will type below:" with no typed text, or a skipped question →
    nothing.
 5. If ≥1 answer: run one Bash command:
-   `spindle-client feedback submit '<JSON array>'` — bare spindle-client, one
-   quoted argument, no pipes.
+   `codespeak feedback submit '<JSON array>'` — bare codespeak, one quoted
+   argument, no pipes.
 6. Reply with the command's output verbatim (all lines, including the upload
    reference) and nothing else — no summaries, no explanations. Then resume any
    unfinished part of the user's request; only end the turn if the work is

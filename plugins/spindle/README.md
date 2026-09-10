@@ -7,12 +7,12 @@ repo (branch per release channel, build version stamped into `plugin.json`; see
 `bin/publish-cc-plugin.ts` and docs/adr/0012), and the repo-root
 `.claude-plugin/marketplace.json` points here so a local checkout works as a
 marketplace for plugin development (`bin/spindle`). The plugin is intentionally
-thin: the manifests below invoke the **`spindle-client` CLI, which must be
-installed separately on your `PATH`** — the plugin does not carry a runtime.
+thin: the manifests below invoke the **`codespeak` CLI, which must be installed
+separately on your `PATH`** — the plugin does not carry a runtime.
 
 ## Install
 
-1. Install the `spindle-client` CLI via npm (the package lives in the CodeSpeak
+1. Install the `codespeak` CLI via npm (the package lives in the CodeSpeak
    GitHub Packages registry — see "Install via npm" in the
    [repo README](../../../README.md) for the one-time auth setup):
    ```sh
@@ -23,14 +23,14 @@ installed separately on your `PATH`** — the plugin does not carry a runtime.
    `PATH` — macOS does not by default):
    ```sh
    curl -fLO https://github.com/codespeak-dev/spindle/releases/download/dev/spindle-client-<target>
-   chmod +x spindle-client-<target> && mv spindle-client-<target> <dir-on-PATH>/spindle-client
+   chmod +x spindle-client-<target> && mv spindle-client-<target> <dir-on-PATH>/codespeak
    ```
    Pick `<target>` for your platform (e.g. `aarch64-apple-darwin`,
    `x86_64-unknown-linux-gnu`, `x86_64-pc-windows-msvc.exe`). Verify with
    `sha256sum --check` / `gh attestation verify` against the release.
 2. Install the plugin into a project. Either let the CLI wire it up —
    ```sh
-   spindle-client track <path-to-repo> [--channel dev|release]
+   codespeak track <path-to-repo> [--channel dev|release]
    ```
    which runs `claude plugin marketplace add` + `claude plugin install` at
    project scope, recording both in the repo's `.claude/settings.json` — or do
@@ -42,19 +42,19 @@ installed separately on your `PATH`** — the plugin does not carry a runtime.
    (dev channel: append `@dev` to the marketplace source and
    `/plugin install spindle@codespeak-dev`.)
 
-If `spindle-client` is not on `PATH`, the hooks degrade gracefully: at session
-start you get a notice with install instructions, and the per-turn hooks stay
-silent (no errors). The MCP server (`spindle-client cc mcp`) is not guarded, so
-its tools report as not found until you install the CLI (step 1).
+If `codespeak` is not on `PATH`, the hooks degrade gracefully: at session start
+you get a notice with install instructions, and the per-turn hooks stay silent
+(no errors). The MCP server (`codespeak cc mcp`) is not guarded, so its tools
+report as not found until you install the CLI (step 1).
 
 ## What's here
 
 - `.claude-plugin/plugin.json` — manifest; registers the `requirements` MCP
-  server as `spindle-client cc mcp`.
+  server as `codespeak cc mcp`.
 - `hooks/hooks.json` — `SessionStart`, `SessionEnd` (sweeps an extraction lock
   whose holder is gone), `UserPromptSubmit`, `Stop`, and `PostToolUse` (on
   `AskUserQuestion`, to extract requirements from decisions you make by
-  answering a question) hooks, run as `spindle-client cc hook <event>`.
+  answering a question) hooks, run as `codespeak cc hook <event>`.
 - `skills/` — bundled skills: `rate-requirements` (the interactive rating flow),
   and `praise` and `fuck` (one-shot good/bad feedback, submitted immediately).
 

@@ -9,12 +9,11 @@ Record the user's negative quick feedback about Spindle.
    {"type":"bad","text":"<the text, verbatim, JSON-escaped>"} — with no text,
    just {"type":"bad"}. Never add a requirementId: the CLI itself ties the point
    to the requirements of the current turn.
-2. Immediately run one Bash command (no other tools first): spindle-client
-   feedback submit '[<the point>]' — bare spindle-client, one quoted argument,
-   no pipes.
-3. If that fails with "Invalid feedback input", the installed spindle-client
-   predates text on bad points: rerun the command once with the point replaced
-   by {"type":"freeform","text":"<the same text>"}, and end the reply by asking
-   the user to run: npm install -g @codespeak-dev/spindle-client@dev
+2. Immediately run one Bash command (no other tools first): codespeak feedback
+   submit '[<the point>]' — bare codespeak, one quoted argument, no pipes.
+3. If that fails with "Invalid feedback input", the installed codespeak predates
+   text on bad points: rerun the command once with the point replaced by
+   {"type":"freeform","text":"<the same text>"}, and end the reply by asking the
+   user to run: npm install -g @codespeak-dev/spindle-client@dev
 4. Reply with the command's output verbatim (all lines, including the upload
    reference) and nothing else — no summaries, no explanations.

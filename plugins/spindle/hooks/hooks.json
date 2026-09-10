@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "command -v spindle-client >/dev/null 2>&1 && exec spindle-client cc hook session-start; printf '%s' '{\"systemMessage\":\"[Spindle] The plugin is enabled, but the spindle-client CLI was not found on PATH — requirement tracking is inactive for this session.\\n\\nInstall it via npm, then restart Claude Code:\\n  npm install -g @codespeak-dev/spindle-client@dev\"}'",
+            "command": "command -v codespeak >/dev/null 2>&1 && exec codespeak cc hook session-start; printf '%s' '{\"systemMessage\":\"[Spindle] The plugin is enabled, but the codespeak CLI was not found on PATH — requirement tracking is inactive for this session.\\n\\nInstall it via npm, then restart Claude Code:\\n  npm install -g @codespeak-dev/spindle-client@dev\"}'",
             "timeout": 300,
             "statusMessage": "Spindle"
           }
@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "command -v spindle-client >/dev/null 2>&1 || exit 0; exec spindle-client cc hook session-end",
+            "command": "command -v codespeak >/dev/null 2>&1 || exit 0; exec codespeak cc hook session-end",
             "timeout": 60
           }
         ]
@@ -29,7 +29,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "command -v spindle-client >/dev/null 2>&1 || exit 0; exec spindle-client cc hook user-prompt-submit",
+            "command": "command -v codespeak >/dev/null 2>&1 || exit 0; exec codespeak cc hook user-prompt-submit",
             "timeout": 300,
             "statusMessage": "[Spindle] Extracting requirements…"
           }
@@ -41,7 +41,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "command -v spindle-client >/dev/null 2>&1 || exit 0; exec spindle-client cc hook stop",
+            "command": "command -v codespeak >/dev/null 2>&1 || exit 0; exec codespeak cc hook stop",
             "timeout": 300,
             "statusMessage": "[Spindle] Surfacing requirements delta…"
           }
@@ -54,7 +54,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "command -v spindle-client >/dev/null 2>&1 || exit 0; exec spindle-client cc hook post-tool-use",
+            "command": "command -v codespeak >/dev/null 2>&1 || exit 0; exec codespeak cc hook post-tool-use",
             "timeout": 300,
             "statusMessage": "[Spindle] Extracting from answer…"
           }
