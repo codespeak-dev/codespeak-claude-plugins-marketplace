@@ -24,17 +24,18 @@ and finish it.
    description "PLEASE type the problem into Type something"] — plus one final
    generic question "Anything about Spindle itself? A missed topic or a gripe."
    (header "General"), options exactly ["Nothing to add" with description
-   "Requirement-specific notes go on the previous tabs", "Yes, I will type
-   below:" with description ""]; any generic note is typed into the free-text
-   ("Other") field. Never add Skip/None options to the per-requirement
-   questions.
-4. Map answers: Good → {"type":"good","requirementId":"<id>"}; Bad — say what's
-   wrong below → {"type":"bad","requirementId":"<id>"}; text typed on a
-   requirement → {"type":"freeform","text":"<text>","requirementId":"<id>"}; a
-   note typed into the generic question's free-text field →
-   {"type":"freeform","text":"<text>"} (no requirementId); "Nothing to add", a
-   bare "Yes, I will type below:" with no typed text, or a skipped question →
-   nothing.
+   "Requirement-specific notes go on the previous tabs",
+   "Yes, I will type below:" with description ""]; any generic note is typed
+   into the free-text ("Other") field. Never add Skip/None options to the
+   per-requirement questions.
+4. Map answers: Good → {"type":"good","requirementId":"<id>"};
+   Bad — say what's wrong below → {"type":"bad","requirementId":"<id>"};
+   text typed on a requirement →
+   {"type":"freeform","text":"<text>","requirementId":"<id>"}; a note typed
+   into the generic question's free-text field →
+   {"type":"freeform","text":"<text>"} (no requirementId);
+   "Nothing to add", a bare "Yes, I will type below:" with no typed
+   text, or a skipped question → nothing.
 5. If ≥1 answer: run one Bash command:
    `codespeak feedback submit '<JSON array>'` — bare codespeak, one quoted
    argument, no pipes.
