@@ -1,9 +1,9 @@
 ---
 name: rate-requirements
-description: Collect good/bad/free-form feedback on the requirements Spindle recorded — the last turn's additions by default, or every unrated requirement of the session. Use when asked to rate requirements or give feedback on requirement extraction, and only after the turn's implementation work is finished. For one-shot feedback without the questionnaire, praise and fuck.
+description: Collect good/bad/free-form feedback on the requirements CodeSpeak recorded — the last turn's additions by default, or every unrated requirement of the session. Use when asked to rate requirements or give feedback on requirement extraction, and only after the turn's implementation work is finished. For one-shot feedback without the questionnaire, praise and fuck.
 ---
 
-Collect the user's feedback on requirements Spindle recorded.
+Collect the user's feedback on requirements CodeSpeak recorded.
 
 Run this AFTER the turn's implementation work is done — it is a closing step,
 never a substitute for the work and never a reason to end the turn early. If
@@ -22,7 +22,7 @@ and finish it.
    non_goals → "Non-goal", anything else → its capitalized first word), options
    exactly ["Good" with description "", "Bad — say what's wrong below" with
    description "PLEASE type the problem into Type something"] — plus one final
-   generic question "Anything about Spindle itself? A missed topic or a gripe."
+   generic question "Anything about CodeSpeak itself? A missed topic or a gripe."
    (header "General"), options exactly ["Nothing to add" with description
    "Requirement-specific notes go on the previous tabs",
    "Yes, I will type below:" with description ""]; any generic note is typed

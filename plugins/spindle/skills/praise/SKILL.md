@@ -1,9 +1,9 @@
 ---
 name: praise
-description: Quick positive feedback about Spindle: record one good point with the user's words and submit it immediately. Use when the user invokes /praise, with their text as the argument.
+description: Quick positive feedback about CodeSpeak: record one good point with the user's words and submit it immediately. Use when the user invokes /praise, with their text as the argument.
 ---
 
-Record the user's positive quick feedback about Spindle.
+Record the user's positive quick feedback about CodeSpeak.
 
 1. Build one point from the text the user passed with the command:
    {"type":"good","text":"<the text, verbatim, JSON-escaped>"} — with no text,

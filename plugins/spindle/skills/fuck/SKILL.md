@@ -1,9 +1,9 @@
 ---
 name: fuck
-description: Quick negative feedback about Spindle: record one bad point with the user's words and submit it immediately. Use when the user invokes /fuck, with their text as the argument.
+description: Quick negative feedback about CodeSpeak: record one bad point with the user's words and submit it immediately. Use when the user invokes /fuck, with their text as the argument.
 ---
 
-Record the user's negative quick feedback about Spindle.
+Record the user's negative quick feedback about CodeSpeak.
 
 1. Build one point from the text the user passed with the command:
    {"type":"bad","text":"<the text, verbatim, JSON-escaped>"} — with no text,
