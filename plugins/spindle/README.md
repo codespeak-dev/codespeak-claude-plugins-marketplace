@@ -4,7 +4,7 @@ This directory is the plugin's source tree. CI publishes it on every build to
 the public
 [codespeak-dev/codespeak-claude-plugins-marketplace](https://github.com/codespeak-dev/codespeak-claude-plugins-marketplace)
 repo (branch per release channel, build version stamped into `plugin.json`; see
-`bin/publish-cc-plugin.ts` and docs/adr/0012), and the repo-root
+`bazel/release/publish-cc-plugin.ts` and docs/adr/0012), and the repo-root
 `.claude-plugin/marketplace.json` points here so a local checkout works as a
 marketplace for plugin development (`bin/spindle`). The plugin is intentionally
 thin: the manifests below invoke the **`codespeak` CLI, which must be installed
