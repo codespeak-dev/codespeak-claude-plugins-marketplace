@@ -1,6 +1,6 @@
 {
   "name": "spindle",
-  "version": "0.1.0-dev.3058.8633+gb28468e7050e",
+  "version": "0.1.0-dev.3061.8641+g55b936bd62f6",
   "description": "Requirements management for Claude Code: on each prompt an extraction agent records the requirements the prompt implies, related ones are retrieved into the session, and the requirements delta is surfaced to the user.",
   "author": {
     "name": "CodeSpeak",
